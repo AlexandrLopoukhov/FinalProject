@@ -11,7 +11,7 @@ api = Blueprint('users', 'users')
 def api_get():
     ''' Get all entities'''
     users = user_service.get()
-    return jsonify([user.as_dict() for user in users])
+    return [user.as_dict() for user in users]
 
 @api.route('/users', methods=['POST'])
 def api_post():
