@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from models.user import User
 from config import db
 from werkzeug.exceptions import NotFound

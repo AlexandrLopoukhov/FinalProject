@@ -9,7 +9,7 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 # Expose port 5000
-EXPOSE 5000
+EXPOSE 5433
 
 # Run the server when container is launched
 CMD ["python", "app.py"]

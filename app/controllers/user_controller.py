@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from flask import Blueprint, jsonify, request
 import services.user_service as user_service
 from models.user import User
