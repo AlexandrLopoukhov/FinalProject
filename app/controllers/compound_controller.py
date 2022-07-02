@@ -1,36 +1,39 @@
 from flask import Blueprint, jsonify, request
-import services.user_service as user_service
-from models.user import User
+import services.compound_service as compound_service
+from models.compound import Compound
 from werkzeug.exceptions import HTTPException
 import json
 
 api = Blueprint('users', 'users')
 
 
-@api.route('/users', methods=['GET'])
+@api.route('/compounds', methods=['GET'])
 def api_get():
     ''' Get all entities'''
-    users = user_service.get()
-    return [user.as_dict() for user in users]
+    compounds = compound_service.get()
+    return [compound.as_dict() for compound in compounds]
 
-@api.route('/users', methods=['POST'])
+
+@api.route('/compounds', methods=['POST'])
 def api_post():
     ''' Create entity'''
-    user = user_service.post(request.json)
-    return jsonify(user.as_dict())
+    compound = compound_service.post(request.json)
+    return jsonify(compound.as_dict())
+
 
 @api.route('/users/<string:id>', methods=['PUT'])
 def api_put(id):
-    ''' Update entity by id'''
+    """Update entity by ID"""
     body = request.json
     body['id'] = id
-    res = user_service.put(body)
-    return jsonify(res.as_dict()) if isinstance(res, User) else jsonify(res)
+    res = compound_service.put(body)
+    return jsonify(res.as_dict()) if isinstance(res, Compound) else jsonify(res)
 
-@api.route('/users/<string:id>', methods=['DELETE'])
+
+@api.route('/compounds/<string:id>', methods=['DELETE'])
 def api_delete(id):
-    ''' Delete entity by id'''
-    res = user_service.delete(id)
+    """Delete entity by ID"""
+    res = compound_service.delete(id)
     return jsonify(res)
 
 

@@ -1,5 +1,5 @@
 from config import app
-from controllers.user_controller import api
+from controllers.compound_controller import api
 
 # register the api
 app.register_blueprint(api)

@@ -14,7 +14,7 @@ class Compound(db.Model):
     inchi = db.Column(db.String(200), nullable=False)
     inchi_key = db.Column(db.String(200), nullable=False)
     smiles = db.Column(db.String(200), nullable=False)
-    cross_links_count = db.Column(db.Integer(200), nullable=False)
+    cross_links_count = db.Column(db.Integer(), nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
