@@ -9,14 +9,14 @@ api = Blueprint('users', 'users')
 
 @api.route('/compounds', methods=['GET'])
 def api_get():
-    ''' Get all entities'''
+    """Get all entities"""
     compounds = compound_service.get()
     return [compound.as_dict() for compound in compounds]
 
 
 @api.route('/compounds', methods=['POST'])
 def api_post():
-    ''' Create entity'''
+    """Create entity"""
     compound = compound_service.post(request.json)
     return jsonify(compound.as_dict())
 
