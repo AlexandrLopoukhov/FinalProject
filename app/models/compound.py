@@ -19,6 +19,7 @@ class Compound(db.Model):
     def as_dict(self):
         return {c.name: getattr(self, c.name)for c in self.__table__.columns}
 
-    def as_cut_formated(self, width):
+    def as_formated_dict(self, field_width):
         compound_dict = self.as_dict()
-        return {k: str(v)[:width:]+'...' if len(str(v)) > width+3 else v for (k, v) in compound_dict.items()}
+        return {k: str(v)[:field_width:]+'...' if len(str(v)) > field_width+3 else v for (k, v) in compound_dict.items()}
+

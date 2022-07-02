@@ -23,3 +23,10 @@ def get_ebi_compound(compound):
     return api_resp.status_code, compound_models
 
 
+from enum import Enum
+class CliAction(Enum):
+    load = 'load'
+    get = 'get'
+    load_all = 'load_all'
+
+
