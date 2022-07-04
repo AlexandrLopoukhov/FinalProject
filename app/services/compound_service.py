@@ -28,14 +28,11 @@ def put(body):
     raise NotFound(f'No such entity found with id={str(body["id"])}')
 
 
-def delete(id):
+def delete(_id):
     """Delete compound by id"""
-    compound = Compound.query.get(id)
+    compound = Compound.query.get(_id)
     if compound:
         db.session.delete(compound)
         db.session.commit()
         return {'success': True}
-    raise NotFound(f'no such entity found with id={str(id)}')
-
-
-
+    raise NotFound(f'no such entity found with id={str(_id)}')
