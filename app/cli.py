@@ -1,8 +1,16 @@
+from enum import Enum
 import click
 from services.compound_service import post, get
 from config import app
-from util import get_ebi_compound, CliAction, DEFAULT_COMPOUNDS_TO_LOAD
+from api_request import get_ebi_compound, DEFAULT_COMPOUNDS_TO_LOAD
 import pandas as pd
+
+
+class CliAction(Enum):
+    """Holds supported CLI actions"""
+    load = 'load'
+    get = 'get'
+    load_default = 'load_default'
 
 
 @click.command()
