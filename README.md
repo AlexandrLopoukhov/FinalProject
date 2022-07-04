@@ -1,4 +1,4 @@
-#Final project
+# Final project
 
 Project load compound information from public API ( https://www.ebi.ac.uk/pdbe/graph-api/)
 and store them in Postgres DB. Application can be used as POST\GET flask server and as a CLI app.
