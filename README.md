@@ -1,4 +1,13 @@
-# Python Postgres Starter Pack
+#Ginal project
+
+Project load compound information from public API ( https://www.ebi.ac.uk/pdbe/graph-api/)
+and store them in Postgres DB. Application can be used as POST\GET flask server and as a CLI app.
+To run from cli perform
+```bash
+python cli.py --action=load --compound=ADP
+```
+Supported action get - represent data from DB, load with --compound= - load particular compound,
+load_default - load list of default compounds.
 
 ## Prerequisites
 1. Python 3.x
@@ -52,8 +61,3 @@ Run:
 ```bash
 docker-compose up --build
 ```
-
-
-## Test and Verification
-
-Import the postman collection in docs folder to test and verify.

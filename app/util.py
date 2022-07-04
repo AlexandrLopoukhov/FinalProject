@@ -1,6 +1,8 @@
 import requests
+from enum import Enum
 
 EBI_API_URL = 'https://www.ebi.ac.uk/pdbe/graph-api/compound/summary/'
+DEFAULT_COMPOUNDS_TO_LOAD = ['ADP', 'ATP', 'STI', 'ZID', 'DPM', 'XP9', '18W', '29P']
 
 
 def get_ebi_compound(compound):
@@ -23,10 +25,10 @@ def get_ebi_compound(compound):
     return api_resp.status_code, compound_models
 
 
-from enum import Enum
 class CliAction(Enum):
+    """Holds supported CLI actions"""
     load = 'load'
     get = 'get'
-    load_all = 'load_all'
+    load_default = 'load_default'
 
 
